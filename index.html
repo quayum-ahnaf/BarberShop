@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Barber Co. | Premium Men's Grooming Lounge</title>
+    <meta name="description" content="Experience high-end grooming at Apex Barber Co. Upscale, industrial men's lounge offering precision haircuts, hot towel shaves, and luxury packages. Book online today.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryBg: '#121214',
+                        secondaryBg: '#1A1A1E',
+                        accentGold: '#C5A059',
+                        borderSlate: '#2A2A30',
+                        textPrimary: '#F3F4F6',
+                        textSecondary: '#9CA3AF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        header: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Inline style to hide elements initially for scroll reveals -->
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .active-reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-primaryBg text-textPrimary antialiased selection:bg-accentGold selection:text-primaryBg">
+
+    <!-- 1. Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 text-xl font-header font-extrabold tracking-[0.2em] text-textPrimary hover:opacity-90 transition-opacity">
+                APEX <span class="text-accentGold">BARBER CO.</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors duration-300">Services</a>
+                <a href="#pricing" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors duration-300">Pricing</a>
+                <a href="#testimonials" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors duration-300">Testimonials</a>
+                <a href="#booking" class="btn-gold-primary px-6 py-2.5 rounded-none text-xs tracking-wider transition-all duration-300 hover:scale-[1.02] flex items-center">
+                    Book Appointment
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-textPrimary focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Collapse Menu -->
+        <div id="mobile-menu" class="hidden md:hidden w-full bg-secondaryBg border-b border-borderSlate px-6 py-6 flex flex-col space-y-4 shadow-xl">
+            <a href="#services" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors py-2 border-b border-borderSlate/30">Services</a>
+            <a href="#pricing" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors py-2 border-b border-borderSlate/30">Pricing</a>
+            <a href="#testimonials" class="text-sm font-medium tracking-wider uppercase hover:text-accentGold transition-colors py-2 border-b border-borderSlate/30">Testimonials</a>
+            <a href="#booking" class="btn-gold-primary text-center px-6 py-3 rounded-none text-xs tracking-wider mt-4">
+                Book Appointment
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-cover bg-center" style="background-image: url('hero_bg.png');">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 py-20 w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 max-w-xl">
+                <div class="inline-flex items-center space-x-2 border border-accentGold/30 px-3.5 py-1.5 bg-secondaryBg/80 rounded-none backdrop-blur-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accentGold animate-pulse"></span>
+                    <span class="text-xs uppercase tracking-[0.2em] font-header font-bold text-accentGold">Est. 2026 / Premium Grooming Lounge</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-header font-extrabold tracking-tight leading-tight uppercase">
+                    Refining the <span class="gold-gradient-text">Modern Gentleman</span>
+                </h1>
+                
+                <p class="text-textSecondary text-base md:text-lg leading-relaxed font-light">
+                    Where modern industrial aesthetic meets precision craftsmanship. Step into a premier grooming experience tailored to details, style, and relaxation.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="#booking" class="btn-gold-primary text-center px-8 py-4 rounded-none text-sm tracking-wider hover:scale-[1.02]">
+                        Book Appointment
+                    </a>
+                    <a href="#services" class="btn-gold-outline text-center px-8 py-4 rounded-none text-sm tracking-wider hover:scale-[1.02]">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Side Visual Accent -->
+            <div class="hidden lg:block relative pl-12">
+                <div class="relative w-full max-w-[420px] mx-auto aspect-[3/4] border-2 border-borderSlate p-4 rounded-none bg-secondaryBg/45 backdrop-blur-md">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-accentGold"></div>
+                    <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-accentGold"></div>
+                    
+                    <div class="w-full h-full border border-borderSlate flex flex-col justify-between p-8 dark-gradient-card">
+                        <div>
+                            <span class="text-6xl font-header font-extrabold text-borderSlate">APEX</span>
+                            <h3 class="text-lg font-header font-bold tracking-wider text-accentGold mt-2">EXCLUSIVE HIGHLIGHTS</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <span class="text-accentGold text-sm mt-0.5">✓</span>
+                                <p class="text-xs text-textSecondary"><strong class="text-textPrimary">Master Barbers:</strong> Seasoned stylists dedicated to hair design and beard sculpts.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="text-accentGold text-sm mt-0.5">✓</span>
+                                <p class="text-xs text-textSecondary"><strong class="text-textPrimary">Premium Products:</strong> Organic styling clays, natural beard grooming tonics.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="text-accentGold text-sm mt-0.5">✓</span>
+                                <p class="text-xs text-textSecondary"><strong class="text-textPrimary">VIP Comforts:</strong> Private lounge chairs, hot towel wraps, complimentary drinks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-borderSlate pt-4 flex justify-between items-center text-xs">
+                            <span class="text-textSecondary uppercase tracking-widest">Call to inquire</span>
+                            <span class="text-accentGold font-bold font-header">(555) 789-2739</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Interactive Tabbed Service Filter Section -->
+    <section id="services" class="py-24 bg-primaryBg border-t border-borderSlate">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs font-header font-bold uppercase tracking-[0.25em] text-accentGold">The Grooming Menu</span>
+                <h2 class="text-3xl md:text-4xl font-header font-extrabold tracking-wider uppercase mt-2 mb-4">Our Services</h2>
+                <div class="w-16 h-0.5 bg-accentGold mx-auto mb-6"></div>
+                <p class="text-textSecondary text-sm md:text-base">
+                    Select a service category below to view our detailed styling options. Each session incorporates signature organic washes and styling consultations.
+                </p>
+            </div>
+
+            <!-- Tab Buttons Filter -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+                <button data-filter="all" class="filter-tab px-6 py-2.5 text-xs font-header font-bold uppercase tracking-wider border rounded-none transition-all duration-300 bg-accentGold text-primaryBg border-accentGold">
+                    All Services
+                </button>
+                <button data-filter="haircuts" class="filter-tab px-6 py-2.5 text-xs font-header font-bold uppercase tracking-wider border rounded-none transition-all duration-300 bg-secondaryBg text-textSecondary border-borderSlate hover:border-accentGold/50">
+                    Haircuts
+                </button>
+                <button data-filter="beards" class="filter-tab px-6 py-2.5 text-xs font-header font-bold uppercase tracking-wider border rounded-none transition-all duration-300 bg-secondaryBg text-textSecondary border-borderSlate hover:border-accentGold/50">
+                    Beards
+                </button>
+                <button data-filter="combos" class="filter-tab px-6 py-2.5 text-xs font-header font-bold uppercase tracking-wider border rounded-none transition-all duration-300 bg-secondaryBg text-textSecondary border-borderSlate hover:border-accentGold/50">
+                    Luxury Combos
+                </button>
+            </div>
+
+            <!-- Dynamic Services Grid -->
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
+                
+                <!-- Card 1: Haircuts - The Apex Classic Cut -->
+                <div data-category="haircuts" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <!-- Icon -->
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Scissor Icon SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <circle cx="6" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                                <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                                <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">The Apex Classic Cut</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Signature precision haircut with detailed consultation, soothing shampoo, warm towel wrap, and styled product finish.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">45 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$45</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Haircuts - Precision Fade -->
+                <div data-category="haircuts" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Clipper Icon / Razor SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <rect x="9" y="3" width="6" height="18" rx="1"></rect>
+                                <path d="M9 7h6M9 11h6M9 15h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Precision Fade</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Seamless low, mid, high, or skin fade crafted with extreme attention to gradient detail and lineup finishing.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">45 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$50</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Haircuts - Buzz Cut & Lineup -->
+                <div data-category="haircuts" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Ruler / Comb Icon SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M5 3h14M5 7h14M5 11h14M5 15h14M5 19h14"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Buzz Cut & Lineup</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Minimalist single-guard clipper cut across the scalp finished with a razor lineup around the ears and neck.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">30 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$30</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Beards - Beard Sculpting & Trim -->
+                <div data-category="beards" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Beard / Shaver Razor SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M12 2v20M5 7a7 7 0 0 0 14 0"></path>
+                                <line x1="8" y1="14" x2="16" y2="14"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Beard Sculpting</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Detailed scissor and clipper trimming to shape beard, outline clean check lines, and seal with hydrating gold tonic.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">30 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$35</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Beards - Hot Towel Shave -->
+                <div data-category="beards" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Sparkles / Spa SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M12 3v18M3 12h18M12 12m-6 0a6 6 0 1 0 12 0 6 6 0 1 0-12 0"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Hot Towel Shave</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Ultimate traditional straight-razor shave with skin-softening lather pre-wraps, facial massage, and ice cold finish.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">45 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$40</span>
+                    </div>
+                </div>
+
+                <!-- Card 6: Beards - Beard Conditioning -->
+                <div data-category="beards" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Droplets / Oil SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Beard Conditioning</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Thermal steam treatment featuring deep-penetrating conditioning oils to nourish coarse hair and moisturize skin.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">20 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$25</span>
+                    </div>
+                </div>
+
+                <!-- Card 7: Combos - The Executive Package -->
+                <div data-category="combos" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Shield / VIP SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">The Executive Package</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Includes Classic Haircut and a Beard Sculpting trim, finished with neck massage, shampoo treatment, and dynamic styling.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">75 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$75</span>
+                    </div>
+                </div>
+
+                <!-- Card 8: Combos - Royal Shave & Haircut -->
+                <div data-category="combos" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Crown SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Royal Shave & Haircut</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            Combines our Signature Classic Haircut with a Traditional Straight-Razor Hot Towel Shave for a complete grooming ritual.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">90 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$85</span>
+                    </div>
+                </div>
+
+                <!-- Card 9: Combos - Apex Signature VIP Experience -->
+                <div data-category="combos" class="service-card reveal dark-gradient-card border border-borderSlate p-8 hover:border-accentGold/50 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 border border-borderSlate flex items-center justify-center text-accentGold mb-6 group-hover:border-accentGold transition-colors">
+                            <!-- Diamond / Gem SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path d="M6 3h12l4 6-10 12L2 9z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-header font-bold tracking-wider uppercase text-textPrimary mb-2">Apex Signature VIP</h3>
+                        <p class="text-textSecondary text-sm mb-6 leading-relaxed">
+                            The ultimate treatment. Haircut, shave, hydrating hair mask, charcoal facial scrub, skin moisturizer, and a premium drink.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-borderSlate pt-6">
+                        <span class="text-xs text-textSecondary uppercase tracking-widest">120 Minutes</span>
+                        <span class="text-lg font-header font-bold text-accentGold">$120</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Stylized Pricing Tier Section -->
+    <section id="pricing" class="py-24 bg-secondaryBg border-t border-borderSlate">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+                <span class="text-xs font-header font-bold uppercase tracking-[0.25em] text-accentGold">Exclusive Memberships</span>
+                <h2 class="text-3xl md:text-4xl font-header font-extrabold tracking-wider uppercase mt-2 mb-4">Premium Packages</h2>
+                <div class="w-16 h-0.5 bg-accentGold mx-auto mb-6"></div>
+                <p class="text-textSecondary text-sm md:text-base">
+                    Ensure consistent, sharp presentation with our exclusive monthly subscription plans. Cancel anytime.
+                </p>
+            </div>
+
+            <!-- Pricing 3-Column Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1: The Essential -->
+                <div class="reveal bg-primaryBg border border-borderSlate p-8 flex flex-col justify-between hover:border-accentGold/20 transition-all duration-300">
+                    <div>
+                        <span class="text-xs font-header font-bold text-textSecondary uppercase tracking-widest">Grooming Basic</span>
+                        <h3 class="text-2xl font-header font-extrabold uppercase mt-2 mb-4 text-textPrimary">The Essential</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-3xl font-header font-extrabold text-accentGold">$50</span>
+                            <span class="text-xs text-textSecondary uppercase tracking-wider ml-2">/ month</span>
+                        </div>
+                        
+                        <div class="w-full h-px bg-borderSlate mb-8"></div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>1 Precision Classic Cut & shampoo</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Clean edge straight-razor shave</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Styling product consultation</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>1 Complimentary cold beverage</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button data-package="The Essential" class="select-tier-btn w-full btn-gold-outline py-3.5 text-xs font-header font-bold uppercase tracking-wider">
+                        Select Package
+                    </button>
+                </div>
+
+                <!-- Package 2: The Executive (Elevated Card) -->
+                <div class="reveal bg-primaryBg border-2 gold-glow-border p-8 flex flex-col justify-between relative transform lg:-translate-y-4 shadow-2xl">
+                    <!-- Ribbon Banner -->
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 gold-gradient-bg px-4 py-1 text-[10px] font-header font-extrabold uppercase tracking-widest text-primaryBg">
+                        Most Popular
+                    </div>
+                    
+                    <div>
+                        <span class="text-xs font-header font-bold text-accentGold uppercase tracking-widest">Complete Refinement</span>
+                        <h3 class="text-2xl font-header font-extrabold uppercase mt-2 mb-4 text-textPrimary">The Executive</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-header font-extrabold text-accentGold">$95</span>
+                            <span class="text-xs text-textSecondary uppercase tracking-wider ml-2">/ month</span>
+                        </div>
+                        
+                        <div class="w-full h-px bg-borderSlate mb-8"></div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-sm">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>2 Precision haircuts / custom fades</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>1 Detailed beard sculpt & trim</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Dual therapeutic hot towel wrap</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Soothing scalp and neck massage</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Unlimited premium beverages</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button data-package="The Executive" class="select-tier-btn w-full btn-gold-primary py-3.5 text-xs font-header font-bold uppercase tracking-wider">
+                        Select Package
+                    </button>
+                </div>
+
+                <!-- Package 3: The Apex VIP -->
+                <div class="reveal bg-primaryBg border border-borderSlate p-8 flex flex-col justify-between hover:border-accentGold/20 transition-all duration-300">
+                    <div>
+                        <span class="text-xs font-header font-bold text-textSecondary uppercase tracking-widest">Luxury Elite</span>
+                        <h3 class="text-2xl font-header font-extrabold uppercase mt-2 mb-4 text-textPrimary">The Apex VIP</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-3xl font-header font-extrabold text-accentGold">$160</span>
+                            <span class="text-xs text-textSecondary uppercase tracking-wider ml-2">/ month</span>
+                        </div>
+                        
+                        <div class="w-full h-px bg-borderSlate mb-8"></div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span class="text-textPrimary font-medium">Unlimited haircuts & trims</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Priority same-day digital booking</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Facial scrub & moisturizing wrap</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Professional styling giftbox (val. $50)</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm text-textSecondary">
+                                <span class="text-accentGold text-base">✓</span>
+                                <span>Top-shelf complimentary bar access</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button data-package="The Apex VIP" class="select-tier-btn w-full btn-gold-outline py-3.5 text-xs font-header font-bold uppercase tracking-wider">
+                        Select Package
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Client Testimonial Slider Section -->
+    <section id="testimonials" class="py-24 bg-primaryBg border-t border-borderSlate">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs font-header font-bold uppercase tracking-[0.25em] text-accentGold">The Apex Experience</span>
+                <h2 class="text-3xl md:text-4xl font-header font-extrabold tracking-wider uppercase mt-2 mb-4">Client Testimonials</h2>
+                <div class="w-16 h-0.5 bg-accentGold mx-auto mb-6"></div>
+                <p class="text-textSecondary text-sm md:text-base">
+                    Discover why grooming enthusiasts and professionals alike trust our master barbers with their style.
+                </p>
+            </div>
+
+            <!-- Testimonial Slider Container -->
+            <div id="testimonial-slider-container" class="relative max-w-4xl mx-auto bg-secondaryBg border border-borderSlate p-8 md:p-16 reveal shadow-xl overflow-hidden">
+                <!-- Decorative Quote Icon -->
+                <div class="absolute top-6 left-6 text-borderSlate text-8xl font-serif leading-none select-none opacity-40">“</div>
+                
+                <!-- Slides Wrappers -->
+                <div class="relative min-h-[220px] flex items-center">
+                    
+                    <!-- Slide 1 (Active by default) -->
+                    <div class="testimonial-slide active w-full transition-all">
+                        <div class="flex items-center space-x-1 text-accentGold mb-6">
+                            <!-- Star SVG (5 times) -->
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <blockquote class="text-lg md:text-xl text-textPrimary font-light italic leading-relaxed mb-6">
+                            "Apex Barber Co. is in a class of its own. The precision fade is always immaculate, and the industrial dark aesthetic creates such a relaxing atmosphere. The hot towel treatment is a must-have ritual."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-borderSlate flex items-center justify-center text-accentGold font-header font-bold text-sm">
+                                MV
+                            </div>
+                            <div>
+                                <cite class="not-italic font-header font-bold text-sm text-textPrimary tracking-wide block uppercase">Marcus Vance</cite>
+                                <span class="text-xs text-textSecondary">Creative Director</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 (Inactive) -->
+                    <div class="testimonial-slide inactive w-full transition-all">
+                        <div class="flex items-center space-x-1 text-accentGold mb-6">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <blockquote class="text-lg md:text-xl text-textPrimary font-light italic leading-relaxed mb-6">
+                            "I've been going to Apex for their Executive package. The level of detail and service is top-notch. It's more than a haircut, it's a premium ritual. Highly recommended to anyone looking for refinement."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-borderSlate flex items-center justify-center text-accentGold font-header font-bold text-sm">
+                                JR
+                            </div>
+                            <div>
+                                <cite class="not-italic font-header font-bold text-sm text-textPrimary tracking-wide block uppercase">Julian Reynolds</cite>
+                                <span class="text-xs text-textSecondary">Venture Partner</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 (Inactive) -->
+                    <div class="testimonial-slide inactive w-full transition-all">
+                        <div class="flex items-center space-x-1 text-accentGold mb-6">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <blockquote class="text-lg md:text-xl text-textPrimary font-light italic leading-relaxed mb-6">
+                            "The booking is seamless, and the styling advice helped me find a look that fits my face shape perfectly. The VIP lounge is amazing. Apex is the only lounge I trust in the city."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-borderSlate flex items-center justify-center text-accentGold font-header font-bold text-sm">
+                                DS
+                            </div>
+                            <div>
+                                <cite class="not-italic font-header font-bold text-sm text-textPrimary tracking-wide block uppercase">Derek Sterling</cite>
+                                <span class="text-xs text-textSecondary">Architect</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="absolute bottom-6 md:bottom-16 right-6 md:right-16 flex items-center space-x-4">
+                    <button id="prev-testimonial" class="w-10 h-10 border border-borderSlate hover:border-accentGold text-textSecondary hover:text-accentGold flex items-center justify-center transition-all duration-300 focus:outline-none" aria-label="Previous Slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button id="next-testimonial" class="w-10 h-10 border border-borderSlate hover:border-accentGold text-textSecondary hover:text-accentGold flex items-center justify-center transition-all duration-300 focus:outline-none" aria-label="Next Slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+                
+                <!-- Dots Indicators -->
+                <div id="testimonial-dots" class="absolute bottom-6 md:bottom-16 left-6 md:left-16 flex space-x-2"></div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 6. Modern Booking Form Section -->
+    <section id="booking" class="py-24 bg-secondaryBg border-t border-borderSlate">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Info Column (Left) -->
+                <div class="lg:col-span-5 flex flex-col justify-between reveal">
+                    <div>
+                        <span class="text-xs font-header font-bold uppercase tracking-[0.25em] text-accentGold">Reserve a Chair</span>
+                        <h2 class="text-3xl md:text-4xl font-header font-extrabold tracking-wider uppercase mt-2 mb-4">Book Appointment</h2>
+                        <div class="w-16 h-0.5 bg-accentGold mb-6"></div>
+                        <p class="text-textSecondary text-sm md:text-base leading-relaxed mb-8">
+                            Plan your next visit with our master barbers. Fill out the form, choose a preferred slot, and we'll have your seat and beverage ready.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <!-- Detail item 1 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 border border-borderSlate flex items-center justify-center text-accentGold shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-widest text-textPrimary font-bold font-header">Lounge Address</h4>
+                                    <p class="text-sm text-textSecondary mt-1">120 Industrial Pkwy, Suite A, Metro City</p>
+                                </div>
+                            </div>
+                            <!-- Detail item 2 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 border border-borderSlate flex items-center justify-center text-accentGold shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-widest text-textPrimary font-bold font-header">Operational Hours</h4>
+                                    <p class="text-sm text-textSecondary mt-1">Mon - Fri: 9:00 AM - 8:00 PM</p>
+                                    <p class="text-sm text-textSecondary">Sat: 9:00 AM - 6:00 PM | Sun: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Map Graphic -->
+                    <div class="border-t border-borderSlate pt-8 mt-12">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs uppercase tracking-widest text-textSecondary">Immediate Assistance</span>
+                            <span class="text-accentGold font-header font-bold text-sm">(555) 789-2739</span>
+                        </div>
+                        <!-- Mini Styled Map Block -->
+                        <div class="h-28 border border-borderSlate relative bg-primaryBg flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            <div class="absolute w-4 h-4 bg-accentGold/20 border border-accentGold rounded-full animate-ping"></div>
+                            <div class="absolute w-2.5 h-2.5 bg-accentGold rounded-full"></div>
+                            <span class="text-[10px] font-header font-bold text-textSecondary uppercase tracking-widest mt-8 relative z-10">APEX LOUNGE LOCATION</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column (Right) -->
+                <div class="lg:col-span-7 reveal">
+                    <div id="booking-form-container" class="bg-primaryBg border border-borderSlate p-8 md:p-10 transition-all duration-500">
+                        <h3 class="text-xl font-header font-bold uppercase tracking-wider text-textPrimary mb-6">Schedule Session</h3>
+                        
+                        <form id="appointment-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Name Input -->
+                                <div class="space-y-2">
+                                    <label for="booking-name" class="block text-xs uppercase tracking-widest text-textSecondary font-semibold">Full Name *</label>
+                                    <input type="text" id="booking-name" placeholder="John Doe" required
+                                           class="w-full px-4 py-3 bg-primaryBg border border-borderSlate text-textPrimary rounded-none focus:border-accentGold focus:ring-1 focus:ring-accentGold transition-colors text-sm font-medium">
+                                </div>
+                                <!-- Phone Input -->
+                                <div class="space-y-2">
+                                    <label for="booking-phone" class="block text-xs uppercase tracking-widest text-textSecondary font-semibold">Phone Number *</label>
+                                    <input type="tel" id="booking-phone" placeholder="(555) 000-0000" required
+                                           class="w-full px-4 py-3 bg-primaryBg border border-borderSlate text-textPrimary rounded-none focus:border-accentGold focus:ring-1 focus:ring-accentGold transition-colors text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Service Selector -->
+                                <div class="space-y-2 md:col-span-1">
+                                    <label for="booking-service" class="block text-xs uppercase tracking-widest text-textSecondary font-semibold">Select Service *</label>
+                                    <select id="booking-service" required
+                                            class="w-full px-4 py-3 bg-primaryBg border border-borderSlate text-textPrimary rounded-none focus:border-accentGold focus:ring-1 focus:ring-accentGold transition-colors text-sm font-medium appearance-none">
+                                        <option value="">Choose Service...</option>
+                                        <option value="classic">The Apex Classic Cut ($45)</option>
+                                        <option value="fade">Precision Fade ($50)</option>
+                                        <option value="buzz">Buzz Cut & Lineup ($30)</option>
+                                        <option value="beard">Beard Sculpting ($35)</option>
+                                        <option value="shave">Hot Towel Shave ($40)</option>
+                                        <option value="cond">Beard Conditioning ($25)</option>
+                                        <option value="essential">The Essential Package ($50)</option>
+                                        <option value="executive">The Executive Package ($75/95)</option>
+                                        <option value="vip">The Apex VIP Package ($120/160)</option>
+                                    </select>
+                                </div>
+                                <!-- Date Picker -->
+                                <div class="space-y-2 md:col-span-1">
+                                    <label for="booking-date" class="block text-xs uppercase tracking-widest text-textSecondary font-semibold">Preferred Date *</label>
+                                    <input type="date" id="booking-date" required
+                                           class="w-full px-4 py-3 bg-primaryBg border border-borderSlate text-textPrimary rounded-none focus:border-accentGold focus:ring-1 focus:ring-accentGold transition-colors text-sm font-medium">
+                                </div>
+                                <!-- Time Slots -->
+                                <div class="space-y-2 md:col-span-1">
+                                    <label for="booking-time" class="block text-xs uppercase tracking-widest text-textSecondary font-semibold">Available Time *</label>
+                                    <select id="booking-time" required
+                                            class="w-full px-4 py-3 bg-primaryBg border border-borderSlate text-textPrimary rounded-none focus:border-accentGold focus:ring-1 focus:ring-accentGold transition-colors text-sm font-medium">
+                                        <option value="">Choose Time...</option>
+                                        <option value="0900">09:00 AM</option>
+                                        <option value="1030">10:30 AM</option>
+                                        <option value="1200">12:00 PM</option>
+                                        <option value="1330">01:30 PM</option>
+                                        <option value="1500">03:00 PM</option>
+                                        <option value="1630">04:30 PM</option>
+                                        <option value="1800">06:00 PM</option>
+                                        <option value="1930">07:30 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" id="booking-submit-btn" class="w-full btn-gold-primary py-4 text-xs font-header font-bold uppercase tracking-widest rounded-none transition-all duration-300">
+                                Confirm Appointment
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="bg-primaryBg border-t border-borderSlate py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <!-- Brand -->
+            <div class="flex flex-col items-center md:items-start space-y-2">
+                <a href="#" class="text-lg font-header font-extrabold tracking-[0.2em] uppercase">
+                    APEX <span class="text-accentGold">BARBER CO.</span>
+                </a>
+                <p class="text-xs text-textSecondary font-light">© 2026 Apex Barber Co. All rights reserved.</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="flex space-x-6 text-xs text-textSecondary uppercase tracking-widest">
+                <a href="#services" class="hover:text-accentGold transition-colors">Services</a>
+                <a href="#pricing" class="hover:text-accentGold transition-colors">Pricing</a>
+                <a href="#testimonials" class="hover:text-accentGold transition-colors">Testimonials</a>
+                <a href="#booking" class="hover:text-accentGold transition-colors">Booking</a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex space-x-4">
+                <a href="#" class="w-8 h-8 border border-borderSlate hover:border-accentGold text-textSecondary hover:text-accentGold flex items-center justify-center transition-colors duration-300" aria-label="Instagram">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" class="w-8 h-8 border border-borderSlate hover:border-accentGold text-textSecondary hover:text-accentGold flex items-center justify-center transition-colors duration-300" aria-label="Facebook">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+                    </svg>
+                </a>
+                <a href="#" class="w-8 h-8 border border-borderSlate hover:border-accentGold text-textSecondary hover:text-accentGold flex items-center justify-center transition-colors duration-300" aria-label="Twitter">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Booking Toast Notification -->
+    <div id="success-toast" class="fixed bottom-6 right-6 z-50 bg-secondaryBg border-2 border-accentGold shadow-2xl p-6 max-w-sm w-full translate-x-full opacity-0 transition-all duration-500 transform ease-in-out">
+        <div class="flex items-start justify-between">
+            <div class="flex items-start space-x-3">
+                <!-- Checkmark Icon -->
+                <div class="w-8 h-8 rounded-full bg-accentGold/20 border border-accentGold flex items-center justify-center text-accentGold shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-header font-bold text-sm text-textPrimary uppercase tracking-wider">Booking Confirmed</h3>
+                    <p class="text-xs text-textSecondary mt-1 leading-relaxed">
+                        Thank you, <strong id="toast-client-name" class="text-textPrimary">Client</strong>! Your seat has been reserved.
+                    </p>
+                    <div class="mt-3 text-[11px] text-textSecondary bg-primaryBg border border-borderSlate px-3 py-2 space-y-1">
+                        <div><strong class="text-accentGold uppercase">Service:</strong> <span id="toast-service">Classic Cut</span></div>
+                        <div><strong class="text-accentGold uppercase">When:</strong> <span id="toast-datetime">June 10 at 10:30 AM</span></div>
+                    </div>
+                    <p class="text-[10px] text-accentGold mt-3 tracking-wider font-header font-medium">Lounge address: 120 Industrial Pkwy</p>
+                </div>
+            </div>
+            <button id="toast-close" class="text-textSecondary hover:text-textPrimary focus:outline-none" aria-label="Close Toast">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Link Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* Apex Barber Co. - Custom Stylesheet */
+
+/* Custom Fonts & Base Settings */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    background-color: #121214;
+    color: #F3F4F6;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-header {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121214;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A2A30;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C5A059;
+}
+
+/* Glassmorphism Header */
+.glass-nav {
+    background: rgba(18, 18, 20, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(42, 42, 48, 0.6);
+}
+
+/* Custom Gradients */
+.gold-gradient-bg {
+    background: linear-gradient(135deg, #C5A059 0%, #E2C487 100%);
+}
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #C5A059 0%, #F5DFB3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark-gradient-card {
+    background: linear-gradient(180deg, #1A1A1E 0%, #151518 100%);
+}
+
+/* Hover & Interactive Effects */
+.btn-gold-primary {
+    background: #C5A059;
+    color: #121214;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold-primary:hover {
+    background: #E2C487;
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-gold-outline {
+    border: 1px solid #C5A059;
+    color: #C5A059;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold-outline:hover {
+    background: rgba(197, 160, 89, 0.1);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Custom Interactive Focus States */
+.gold-focus:focus {
+    outline: none;
+    border-color: #C5A059;
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+}
+
+/* Animations for Tab Transitions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Service Card Filter Styling */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.service-card.hidden-card {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* Testimonial Carousel Transitions */
+.testimonial-slide {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    display: block;
+}
+
+.testimonial-slide.inactive {
+    opacity: 0;
+    transform: scale(0.98);
+    display: none;
+}
+
+/* Glowing Accent Border */
+.gold-glow-border {
+    border-color: #C5A059;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+/* Hero Section Overlay */
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(18, 18, 20, 0.5) 0%, rgba(18, 18, 20, 0.95) 100%);
+}
+
+/* Form Styles */
+input, select, textarea {
+    background-color: #121214 !important;
+    border-color: #2A2A30 !important;
+    color: #F3F4F6 !important;
+}
+
+/* Mobile Nav Transitions */
+#mobile-menu {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
